@@ -6,7 +6,7 @@ const WebMapView = () => {
     const mapRef = useRef<HTMLDivElement>(null);
     const { setContainer } = useContext(EsriContext);
 
-    // we can let the application context
+    // we can let the Esri context
     // know that the component is ready
     useEffect(() => {
         setContainer(mapRef.current);

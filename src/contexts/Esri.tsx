@@ -4,13 +4,13 @@ export interface EsriProviderProps {
     children: JSX.Element[];
 }
 
-interface ContextProps {
+interface EsriContextProps {
     container: HTMLDivElement;
     setContainer: (a: HTMLDivElement) => void;
 }
 
 // main application context
-export const EsriContext = createContext<ContextProps>(null);
+export const EsriContext = createContext<EsriContextProps>(null);
 
 // main application provider
 export const EsriProvider = ({ children }: EsriProviderProps) => {
