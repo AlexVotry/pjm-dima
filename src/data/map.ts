@@ -19,15 +19,15 @@ export const view = new MapView({
 // add a legend widget instance to the view
 // and set the style to 'card'. This is a
 // responsive style, which is good for mobile devices
-export const legend = new Expand({
-    content: new Legend({
-        view,
-        style: 'card',
-    }),
-    view,
-    expanded: true,
-});
-view.ui.add(legend, 'bottom-left');
+// export const legend = new Expand({
+//     content: new Legend({
+//         view,
+//         style: 'card',
+//     }),
+//     view,
+//     expanded: true,
+// });
+// view.ui.add(legend, 'bottom-left');
 
 /**
  * Assigns the container element to the View

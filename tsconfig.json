@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "es2015.promise", "es5", "es6"],
+    "lib": [
+      "dom",
+      "es2015.promise",
+      "es5",
+      "es6"
+    ],
     "target": "es5",
     "module": "amd",
     "noImplicitAny": true,
+    "noImplicitThis": true,
     "removeComments": true,
     "jsx": "react",
     "moduleResolution": "node",
@@ -14,7 +20,6 @@
     "noLib": false,
     "preserveConstEnums": true,
     "noEmit": true,
-    
     "outDir": "./dist/",
     "sourceMap": true,
     "noEmitOnError": false,

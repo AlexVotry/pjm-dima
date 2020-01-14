@@ -15,4 +15,4 @@ const WebMapView = () => {
     return <div className="webmap" ref={mapRef} />;
 };
 
-export { WebMapView };
+export default WebMapView;

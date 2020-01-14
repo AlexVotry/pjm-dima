@@ -14,7 +14,7 @@ export const EsriContext = createContext<EsriContextProps>(null);
 
 // main application provider
 export const EsriProvider = ({ children }: EsriProviderProps) => {
-    const [container, setContainer] = useState<HTMLDivElement>(null);
+    const [container, setContainer] = useState<HTMLDivElement>();
 
     // when container is ready, we can load the
     // mapping portion of our application

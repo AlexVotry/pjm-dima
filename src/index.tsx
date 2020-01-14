@@ -1,16 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Header } from './components/Header';
-import { WebMapView } from './components/WebMapView';
-import { EsriProvider } from './contexts/Esri';
 
-import { title } from './config';
+import App from './App';
 
 ReactDOM.render(
-    <EsriProvider>
-        <Header appTitle={title} />
-        <WebMapView />
-    </EsriProvider>,
+    <App />,
     document.getElementById('root'),
 );
