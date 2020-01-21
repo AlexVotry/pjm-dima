@@ -1,8 +1,4 @@
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import React from "react";
-
-const theme = createMuiTheme({
+export const dimaColors = {
   palette: {
     primary: {
       main: 'rgba(88, 88, 91, 0.7)',
@@ -41,22 +37,4 @@ const theme = createMuiTheme({
       letterSpacing: "0.00938em",
     }
   }
-});
-
-function withRoot<P>(Component: React.ComponentType<P>) {
-  function WithRoot(props: P) {
-    // MuiThemeProvider makes the theme available down the React tree
-    // thanks to React context.
-    return (
-      <MuiThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...props} />
-      </MuiThemeProvider>
-    );
-  }
-
-  return WithRoot;
-}
-
-export default withRoot;
+};

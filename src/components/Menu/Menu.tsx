@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-
 import { popUpCards } from './menuData';
 import BasicCard from '../Card/BasicCard';
+import CardContext from '../../contexts/CardContext';
+import { popUp } from '../../types';
 
 const useStyles = makeStyles(({ spacing }: Theme) =>
   createStyles({
@@ -12,7 +13,8 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
       display: 'flex',
       position: 'absolute',
       zIndex: 5,
-      height: '100vh'
+      height: '100vh',
+      width: '10vw'
     },
     menu: {
       marginRight: spacing(2),
@@ -21,16 +23,12 @@ const useStyles = makeStyles(({ spacing }: Theme) =>
     }
   }))
 
-interface popUp {
-  title: string;
-  header: string;
-  icon: any;
-}
-
 export default function Menu() {
   const classes = useStyles({ static: true });
   const [click, setClick] = useState(false);
-  const [popups, setPopUps] = useState([]);
+  const [popups, setPopUps] = useState<popUp[]>([]);
+  const removeCard = (val: popUp) => setPopUps(popups.filter(c => c.title !== val.title));
+  const cardContext = { popups, removeCard };
 
   const handleClick = (card: popUp) => {
 
@@ -60,13 +58,15 @@ export default function Menu() {
   }
 
   return (
-    <div className={classes.menuContainer}>
-      <div className={classes.menu}>
-        <div>
-          {renderMenu()}
+    <CardContext.Provider value={cardContext}>
+      <div className={classes.menuContainer}>
+        <div className={classes.menu}>
+          <div>
+            {renderMenu()}
+          </div>
         </div>
+        {renderPopup()}
       </div>
-      {renderPopup()}
-    </div>
+    </CardContext.Provider>
   );
 };

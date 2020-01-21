@@ -12,7 +12,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = function(_, arg) {
+module.exports = function (_, arg) {
     const config = {
         entry: {
             index: ['@dojo/framework/shim/Promise', './src/css/main.scss', './src/worker-config.ts', './src/index.tsx'],
