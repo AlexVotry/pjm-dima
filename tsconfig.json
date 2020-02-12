@@ -34,7 +34,6 @@
     "moment"
   ],
   "include": [
-    "src/*",
-    "src/data/fakeData.tsx"
+    "src/*"
   ]
 }

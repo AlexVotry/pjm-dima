@@ -26,9 +26,12 @@ export const EsriProvider = ({ children }: EsriProviderProps) => {
         }
     };
 
-    useEffect(() => {
-        loadMap();
-    }, [container]);
+    useEffect(
+        () => {
+            loadMap();
+        },
+        [container],
+    );
 
     const value = {
         container,

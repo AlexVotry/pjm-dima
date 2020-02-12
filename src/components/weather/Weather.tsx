@@ -2,33 +2,28 @@ import React, { useState } from 'react';
 
 import PjmTabs from '../common/Tabs';
 import TypicalConditions from './TypicalConditions';
-import { dimaColors } from '../../inlineCss/colors';
-import { inStylesType } from '../../types';
+import FutureRadar from './FutureRadar';
 
 export default function LineOutages() {
-  const [tab, setTab] = useState(0);
+    const [tab, setTab] = useState('Typical Conditions');
 
-  const chooseTab = (val: number) => {
-    setTab(val);
-  }
+    const chooseTab = (val: string) => {
+        setTab(val);
+    };
 
-  const renderList = () => {
-    return tab === 0 ? <TypicalConditions /> : null;
-  }
+    const renderList = () => {
+        return tab === 'Typical Conditions' ? <TypicalConditions /> : null;
+    };
 
-  return (
-    <>
-      <PjmTabs tabs={["Typical Conditions", "Severe Conditions", "Forecasting"]} chooseTab={chooseTab} />
-      <div style={styles.boxOutline}>
-        {renderList()}
-      </div>
-    </>
-  );
-}
-
-const styles: inStylesType = {
-  boxOutline: {
-    width: '100%',
-    border: '1px solid #fff'
-  },
+    return (
+        <>
+            <PjmTabs
+                tabs={['Typical Conditions', 'Severe Conditions', 'Forecasting']}
+                chooseTab={chooseTab}
+                isActive={tab}
+            />
+            {renderList()}
+            <FutureRadar />
+        </>
+    );
 }

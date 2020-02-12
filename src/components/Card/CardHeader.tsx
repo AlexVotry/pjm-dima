@@ -6,45 +6,47 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 import CardContext from '../../contexts/CardContext';
-import { popUp } from '../../types';
+import { PopUp } from '../../types';
 
 const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.background.default
-    },
-    menuButton: {
-      marginRight: theme.spacing(1),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  }),
+    createStyles({
+        root: {
+            flexGrow: 1,
+            backgroundColor: theme.palette.background.default,
+        },
+        menuButton: {
+            marginRight: theme.spacing(1),
+        },
+        title: {
+            flexGrow: 1,
+        },
+    }),
 );
 
 interface CardHeaderProps {
-  info: popUp;
+    info: PopUp;
 }
 
 export default function CardHeader({ info }: CardHeaderProps) {
-  const classes = useStyles({ static: true });
-  const cards = useContext(CardContext);
+    const classes = useStyles({ static: true });
+    const cards = useContext(CardContext);
 
-  const handleClose = () => {
-    cards.removeCard(info);
-  }
+    const handleClose = () => {
+        cards.removeCard(info);
+    };
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            {info.header}
-          </Typography>
-          <Button color="inherit" onClick={handleClose}>X</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+    return (
+        <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" className={classes.title}>
+                        {info.header}
+                    </Typography>
+                    <Button color="inherit" onClick={handleClose}>
+                        X
+                    </Button>
+                </Toolbar>
+            </AppBar>
+        </div>
+    );
 }

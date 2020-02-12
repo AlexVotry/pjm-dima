@@ -1,23 +1,21 @@
 import React, { useEffect } from 'react';
-import { wdt, getToken } from './wdtApi';
+import { wdt } from './wdtApi';
 
 export default function FutureRadar() {
+    const logResults = async () => {
+        const response = await wdt();
+        console.log('response:', response.data);
+    };
 
-  const logResults = async () => {
-    const response = await wdt('nothing');
-    console.log('response:', response);
-  }
+    // const postUsername = async () => {
+    //     const response = await getToken();
+    //     console.log('post:', response);
+    // };
 
-  const postUsername = async () => {
-    const response = await getToken();
-    console.log('post:', response);
-  }
+    useEffect(() => {
+        logResults();
+        // postUsername();
+    }, []);
 
-  useEffect(() => {
-    logResults();
-  }, [])
-
-  return <div>WDT</div>
-
+    return <div>WDT</div>;
 }
-

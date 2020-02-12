@@ -56,7 +56,7 @@ public class proxy : IHttpHandler {
         }
     }
 
-    private static string PROXY_REFERER = "http://localhost/dima/proxy/wdt.ashx";
+    private static string PROXY_REFERER = "http://localhost/src/weather/wdt.ashx";
     private static string DEFAULT_OAUTH = "https://www.arcgis.com/sharing/oauth2/";
     private static int CLEAN_RATEMAP_AFTER = 10000; //clean the rateMap every xxxx requests
     private static System.Net.IWebProxy SYSTEM_PROXY = System.Net.HttpWebRequest.DefaultWebProxy; // Use the default system proxy
@@ -69,7 +69,7 @@ public class proxy : IHttpHandler {
         if (logTraceListener == null)
         {
             logTraceListener = new LogTraceListener();
-            Trace.Listeners.Add(logTraceListener);
+            Trace.Listeners.Add(logTraceListener);qwhs
         }
 
 

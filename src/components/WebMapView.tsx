@@ -8,11 +8,14 @@ const WebMapView = () => {
 
     // we can let the Esri context
     // know that the component is ready
-    useEffect(() => {
-        setContainer(mapRef.current);
-    }, [mapRef.current]);
+    useEffect(
+        () => {
+            setContainer(mapRef.current);
+        },
+        [mapRef.current],
+    );
 
-    return <div className="webmap" ref={mapRef} />;
+    return <div id="webmap" className="webmap" ref={mapRef} />;
 };
 
 export default WebMapView;

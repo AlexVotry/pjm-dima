@@ -1,23 +1,30 @@
 import axios from 'axios';
+// import esriConfig from 'esri/config';
+// import urlUtils from 'esri/core/urlUtils';
+// import esriRequest from 'esri/request';
 
-export function wdt(term) {
+// esriConfig.portalUrl = 'https://gisweb.wdtinc.com/arcgis';
+// esriConfig.request.proxyUrl = 'wdt.ashx';
 
-  return axios.get('https://gisweb.wdtinc.com/arcgis/rest/services/Radar/Future_Radar/MapServer/', {
-    proxy: {
-      host: 'http://localhost',
-      port: 8081,
-      auth: {
-        username: 'pjm_gis',
-        password: 'wdtWXd@t@'
-      },
-    },
-    // params: {query: term}
-  });
+export function wdt() {
+    // urlUtils.addProxyRule({
+    //     urlPrefix: 'https://gisweb.wdtinc.com/arcgis',
+    //     proxyUrl: "wdt.ashx"
+    // });
+
+    // const url = 'https://gisweb.wdtinc.com/arcgis/rest/services/Radar/CONUS_Radar_Loop/MapServer/0/query?f=json&where=objectid%3E%3D0&returnGeometry=false&spatialRel=esriSpatialRelEnvelopeIntersects&outFields=datetime&returnDistinctValues=true&orderByFields=datetime&outSR=3857';
+
+    // return esriRequest(url, {
+    //     responseType: 'json'
+    // });
+
+    return axios.get('http://localhost:5000/api/radar-dates');
 }
 
-export function getToken() {
-  return axios.post('https://sampleserver6.arcgisonline.com/arcgis/tokens/generateToken', {
-    username: 'pjm_gis',
-    password: 'wdtWXd@t@'
-  })
-}
+// export function getToken() {
+//     return axios.post('https://gisweb.wdtinc.com/arcgis/tokens/generateToken', {
+//         username: 'pjm_gis',
+//         password: 'wdtWXd@t@',
+//         referer: 'http://localhost:8081',
+//     });
+// }
